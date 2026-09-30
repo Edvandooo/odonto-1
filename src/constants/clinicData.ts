@@ -3,6 +3,16 @@
  * Todos os links e números de WhatsApp são centralizados aqui para fácil alteração.
  */
 
+import doctorHeroImg from "../assets/images/doutora_lais_portrait_1790739138596.jpg";
+import clinicHeroBgImg from "../assets/images/regenerated_image_1790743679006.png";
+import clinicAboutImg from "../assets/images/regenerated_image_1790742529132.png";
+import clinicAboutRoomImg from "../assets/images/clinic_about_room_1790739151723.jpg";
+import clinicReceptionImg from "../assets/images/regenerated_image_1790742530158.png";
+import clinicReceptionLoungeImg from "../assets/images/clinic_reception_lounge_1790739165661.jpg";
+import clinicFacadeImg from "../assets/images/regenerated_image_1790742531362.png";
+import clinicCtaBgImg from "../assets/images/regenerated_image_1790742532692.png";
+import heroClinicInteriorImg from "../assets/images/hero_clinic_interior_1790739125494.jpg";
+
 export const CLINIC_CONFIG = {
   doctorName: "Dra. Laís Ribeiro",
   brandName: "Laís Ribeiro",
@@ -23,16 +33,16 @@ export const CLINIC_CONFIG = {
   
   // Imagens fornecidas pelo usuário com fallbacks de altíssima definição
   images: {
-    doctorHero: "/src/assets/images/doutora_lais_portrait_1790739138596.jpg",
-    doctorHeroFallback: "/src/assets/images/doutora_lais_portrait_1790739138596.jpg",
-    clinicHeroBg: "/src/assets/images/regenerated_image_1790743679006.png",
-    clinicAbout: "/src/assets/images/regenerated_image_1790742529132.png",
-    clinicAboutFallback: "/src/assets/images/regenerated_image_1790742529132.png",
-    clinicReception: "/src/assets/images/regenerated_image_1790742530158.png",
-    clinicReceptionFallback: "/src/assets/images/regenerated_image_1790742530158.png",
-    clinicFacade: "/src/assets/images/regenerated_image_1790742531362.png",
-    clinicCtaBg: "/src/assets/images/regenerated_image_1790742532692.png",
-    clinicTreatment: "/unnamed (1).jpg",
+    doctorHero: doctorHeroImg,
+    doctorHeroFallback: doctorHeroImg,
+    clinicHeroBg: clinicHeroBgImg,
+    clinicAbout: clinicAboutImg,
+    clinicAboutFallback: clinicAboutRoomImg,
+    clinicReception: clinicReceptionImg,
+    clinicReceptionFallback: clinicReceptionLoungeImg,
+    clinicFacade: clinicFacadeImg,
+    clinicCtaBg: clinicCtaBgImg,
+    clinicTreatment: heroClinicInteriorImg,
   }
 };
 
