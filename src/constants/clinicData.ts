@@ -1,3 +1,10 @@
+import doutoraLaisPortrait from "../assets/images/doutora_lais_portrait_1790739138596.jpg";
+import heroClinicInterior from "../assets/images/hero_clinic_interior_1790739125494.jpg";
+import clinicAboutImg from "../assets/images/regenerated_image_1790742529132.png";
+import clinicReceptionImg from "../assets/images/regenerated_image_1790742530158.png";
+import clinicFacadeImg from "../assets/images/regenerated_image_1790742531362.png";
+import clinicCtaBgImg from "../assets/images/regenerated_image_1790742532692.png";
+
 /**
  * Dados e Configurações Centrais da Clínica Dra. Laís Ribeiro
  * Todos os links e números de WhatsApp são centralizados aqui para fácil alteração.
@@ -23,15 +30,15 @@ export const CLINIC_CONFIG = {
   
   // Imagens fornecidas pelo usuário com fallbacks de altíssima definição
   images: {
-    doctorHero: "/src/assets/images/doutora_lais_portrait_1790739138596.jpg",
-    doctorHeroFallback: "/src/assets/images/doutora_lais_portrait_1790739138596.jpg",
-    clinicHeroBg: "/src/assets/images/hero_clinic_interior_1790739125494.jpg",
-    clinicAbout: "/src/assets/images/regenerated_image_1790742529132.png",
-    clinicAboutFallback: "/src/assets/images/regenerated_image_1790742529132.png",
-    clinicReception: "/src/assets/images/regenerated_image_1790742530158.png",
-    clinicReceptionFallback: "/src/assets/images/regenerated_image_1790742530158.png",
-    clinicFacade: "/src/assets/images/regenerated_image_1790742531362.png",
-    clinicCtaBg: "/src/assets/images/regenerated_image_1790742532692.png",
+    doctorHero: doutoraLaisPortrait,
+    doctorHeroFallback: doutoraLaisPortrait,
+    clinicHeroBg: heroClinicInterior,
+    clinicAbout: clinicAboutImg,
+    clinicAboutFallback: clinicAboutImg,
+    clinicReception: clinicReceptionImg,
+    clinicReceptionFallback: clinicReceptionImg,
+    clinicFacade: clinicFacadeImg,
+    clinicCtaBg: clinicCtaBgImg,
     clinicTreatment: "/unnamed (1).jpg",
   }
 };
