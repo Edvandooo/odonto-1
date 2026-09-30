@@ -25,7 +25,7 @@ export const CLINIC_CONFIG = {
   images: {
     doctorHero: "/src/assets/images/doutora_lais_portrait_1790739138596.jpg",
     doctorHeroFallback: "/src/assets/images/doutora_lais_portrait_1790739138596.jpg",
-    clinicHeroBg: "/src/assets/images/hero_clinic_interior_1790739125494.jpg",
+    clinicHeroBg: "/src/assets/images/regenerated_image_1790743679006.png",
     clinicAbout: "/src/assets/images/regenerated_image_1790742529132.png",
     clinicAboutFallback: "/src/assets/images/regenerated_image_1790742529132.png",
     clinicReception: "/src/assets/images/regenerated_image_1790742530158.png",
