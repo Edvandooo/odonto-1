@@ -2,20 +2,19 @@ import React from "react";
 import { CLINIC_CONFIG, getWhatsAppUrl } from "../constants/clinicData";
 import { MessageCircle, ArrowRight } from "lucide-react";
 import { ToothLogo } from "./ToothLogo";
-import { ClinicImage } from "./ClinicImage";
 
 export const FinalCTA: React.FC = () => {
   return (
     <section id="contato" className="relative py-20 lg:py-28 overflow-hidden bg-[#261E16]">
-      {/* Background Oficial da Clínica Fornecido pelo Usuário */}
+      {/* Background Fotográfico da Clínica com Overlay Quente e Sutil */}
       <div className="absolute inset-0 z-0">
-        <ClinicImage
-          src={CLINIC_CONFIG.officialImages.consultorio}
-          alt="Consultório Dra. Laís Ribeiro"
-          placeholderLabel="Foto Oficial: Consultório"
-          className="w-full h-full object-cover filter brightness-[0.22] contrast-[1.1]"
+        <img
+          src={CLINIC_CONFIG.images.clinicCtaBg}
+          alt="Clínica odontológica Dra. Laís Ribeiro"
+          className="w-full h-full object-cover filter brightness-[0.25] contrast-[1.1]"
+          referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#201811]/95 via-[#2C2117]/85 to-[#201811]/95 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#201811]/95 via-[#2C2117]/85 to-[#201811]/95" />
       </div>
 
       {/* Ícone de Dente Iluminado Gigante em Marca d'Água Sutil no Fundo */}
@@ -26,7 +25,7 @@ export const FinalCTA: React.FC = () => {
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-10 text-center lg:text-left">
           
-          {/* Textos de Chamada Conforme a Cópia da Referência */}
+          {/* Textos de Chamada */}
           <div className="max-w-xl">
             <span className="text-[11px] font-semibold tracking-[0.24em] text-[#D8BFA3] uppercase block mb-3">
               Vamos cuidar do seu sorriso?
@@ -39,7 +38,7 @@ export const FinalCTA: React.FC = () => {
             </p>
           </div>
 
-          {/* Botão de Conversão Direta para o WhatsApp */}
+          {/* Botão de Conversão Direta */}
           <div className="shrink-0">
             <a
               href={getWhatsAppUrl("Olá, Dra. Laís! Gostaria de agendar minha consulta agora.")}

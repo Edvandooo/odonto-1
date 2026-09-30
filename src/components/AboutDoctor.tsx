@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { CLINIC_CONFIG, getWhatsAppUrl } from "../constants/clinicData";
 import { GraduationCap, Sparkles, Heart, ArrowRight } from "lucide-react";
-import { ClinicImage } from "./ClinicImage";
 
 export const AboutDoctor: React.FC = () => {
+  const [aboutImgSrc, setAboutImgSrc] = useState(CLINIC_CONFIG.images.clinicAbout);
+
   return (
     <section id="sobre" className="py-24 lg:py-32 bg-[#FAF7F2] relative overflow-hidden">
       {/* Luz ambiente suave */}
@@ -12,18 +13,22 @@ export const AboutDoctor: React.FC = () => {
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* LADO ESQUERDO: IMAGEM REAL DA CLÍNICA FORNECIDA PELO CLIENTE */}
+          {/* LADO ESQUERDO: IMAGEM REAL DA CLÍNICA */}
           <div className="lg:col-span-6 relative">
             <div className="relative rounded-3xl overflow-hidden shadow-[0_16px_40px_-10px_rgba(80,60,40,0.12)] border border-[#ECE2D5] bg-[#E8DDD0]">
-              <ClinicImage
-                src={CLINIC_CONFIG.officialImages.consultorio}
-                secondarySrc={CLINIC_CONFIG.officialImages.recepcao}
+              <img
+                src={aboutImgSrc}
                 alt="Consultório Odontológico Dra. Laís Ribeiro"
-                placeholderLabel="Foto Oficial: Consultório Odontológico"
                 className="w-full h-[380px] sm:h-[460px] lg:h-[500px] object-cover object-center transition-transform duration-700 hover:scale-[1.02]"
+                referrerPolicy="no-referrer"
+                onError={() => {
+                  if (aboutImgSrc !== CLINIC_CONFIG.images.clinicAboutFallback) {
+                    setAboutImgSrc(CLINIC_CONFIG.images.clinicAboutFallback);
+                  }
+                }}
               />
 
-              {/* Vinheta suave e letreiro sutil de acolhimento */}
+              {/* Vinheta suave e letreiro sutil de acolhimento na parede do consultório */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#2C2319]/50 via-transparent to-transparent pointer-events-none" />
 
               {/* Selo decorativo na foto como na referência */}

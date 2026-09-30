@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { CLINIC_CONFIG, getWhatsAppUrl } from "../constants/clinicData";
 import { ShieldCheck, Clock, MapPin, Sparkles, ArrowRight } from "lucide-react";
-import { ClinicImage } from "./ClinicImage";
 
 export const ClinicExperience: React.FC = () => {
+  const [receptionImg, setReceptionImg] = useState(CLINIC_CONFIG.images.clinicReception);
+  const [facadeImg, setFacadeImg] = useState(CLINIC_CONFIG.images.clinicFacade);
+
   return (
     <section id="estrutura" className="py-24 lg:py-32 bg-[#F6F2EB] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
@@ -27,20 +29,24 @@ export const ClinicExperience: React.FC = () => {
           </p>
         </div>
 
-        {/* Composição Visual com as Fotos Oficiais Fornecidas */}
+        {/* Composição Visual Rica com Fotos Reais e Cards Sobrepostos */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-16">
           
-          {/* Card Principal: Sala de Espera / Recepção Oficial */}
+          {/* Card Principal: Sala de Espera / Recepção */}
           <div className="lg:col-span-7 relative group">
             <div className="rounded-3xl overflow-hidden shadow-lg border border-[#E8DFD3] bg-[#E3D7C6] h-[360px] sm:h-[420px] lg:h-[460px] relative">
-              <ClinicImage
-                src={CLINIC_CONFIG.officialImages.recepcao}
-                secondarySrc={CLINIC_CONFIG.officialImages.recepcaoSecundaria}
+              <img
+                src={receptionImg}
                 alt="Recepção acolhedora da clínica Dra. Laís Ribeiro"
-                placeholderLabel="Foto Oficial: Recepção & Espera"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                referrerPolicy="no-referrer"
+                onError={() => {
+                  if (receptionImg !== CLINIC_CONFIG.images.clinicReceptionFallback) {
+                    setReceptionImg(CLINIC_CONFIG.images.clinicReceptionFallback);
+                  }
+                }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#201912]/85 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#201912]/80 via-transparent to-transparent pointer-events-none" />
 
               <div className="absolute bottom-6 left-6 right-6 text-white">
                 <span className="inline-block px-3 py-1 rounded-full bg-[#9E8268]/90 text-[10px] uppercase tracking-wider font-semibold mb-2">
@@ -50,22 +56,27 @@ export const ClinicExperience: React.FC = () => {
                   Espaço Acolhedor e Climatizado
                 </h3>
                 <p className="text-xs text-[#EAE2D8] mt-1 max-w-md">
-                  Ambiente humanizado, iluminação cênica suave e comodidade para você se sentir seguro e bem recebido.
+                  Painel ripado em madeira nobre, iluminação cênica suave e assentos confortáveis para você se sentir em casa desde o primeiro instante.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Coluna Direita: Foto da Fachada & Destaques de Confiança */}
+          {/* Coluna Direita: Foto Sobreposta da Clínica & Destaques de Confiança */}
           <div className="lg:col-span-5 flex flex-col gap-6">
             
-            {/* Foto Oficial da Fachada da Clínica */}
+            {/* Foto da Fachada / Identidade Real */}
             <div className="rounded-2xl overflow-hidden shadow-md border border-[#E8DFD3] bg-[#E3D7C6] h-[220px] relative group">
-              <ClinicImage
-                src={CLINIC_CONFIG.officialImages.estabelecimento}
+              <img
+                src={facadeImg}
                 alt="Fachada oficial da clínica odontológica"
-                placeholderLabel="Foto Oficial: Fachada da Clínica"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                referrerPolicy="no-referrer"
+                onError={() => {
+                  if (facadeImg !== CLINIC_CONFIG.images.clinicReceptionFallback) {
+                    setFacadeImg(CLINIC_CONFIG.images.clinicReceptionFallback);
+                  }
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#201912]/70 via-transparent to-transparent pointer-events-none" />
               <div className="absolute bottom-4 left-4 right-4 text-white flex items-center justify-between">
@@ -100,7 +111,7 @@ export const ClinicExperience: React.FC = () => {
               <div className="p-4 rounded-2xl bg-white/80 border border-[#ECE2D5] shadow-xs">
                 <Sparkles className="w-5 h-5 text-[#9E8268] mb-2" />
                 <h4 className="text-xs font-semibold text-[#2C2724] mb-1">Tecnologia</h4>
-                <p className="text-[11px] text-[#786E66]">Diagnóstico preciso e planejamento estético digital.</p>
+                <p className="text-[11px] text-[#786E66]">Fotografia intraoral e planejamento estético digital.</p>
               </div>
             </div>
 
@@ -108,7 +119,7 @@ export const ClinicExperience: React.FC = () => {
 
         </div>
 
-        {/* CTA Intermediário */}
+        {/* CTA Intermediário Sutil */}
         <div className="flex justify-center">
           <a
             href={getWhatsAppUrl("Olá, Dra. Laís! Gostaria de agendar uma visita e conhecer a clínica.")}

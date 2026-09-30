@@ -1,6 +1,6 @@
 /**
  * Dados e Configurações Centrais da Clínica Dra. Laís Ribeiro
- * REGRA ABSOLUTA: Imagens oficiais fornecidas pelo usuário. Nenhuma imagem é gerada por IA.
+ * Todos os links e números de WhatsApp são centralizados aqui para fácil alteração.
  */
 
 export const CLINIC_CONFIG = {
@@ -21,19 +21,18 @@ export const CLINIC_CONFIG = {
     sunday: "Domingo: Fechado"
   },
   
-  // ARQUIVOS FINAIS E OFICIAIS FORNECIDOS PELO CLIENTE (ZERO IA)
-  officialImages: {
-    // Foto da Dra. Laís Ribeiro (PNG recortado ou JPG oficial de estúdio)
-    doctorCutout: "/DOUTORA LAIS.png",
-    doctorPhoto: "/FOTO_DR LAIS.jpg",
-    // Fotos dos ambientes reais da clínica
-    consultorio: "/CONSULTÓRIO.jpg",
-    recepcao: "/RECEPÇÃO.jpg",
-    recepcaoSecundaria: "/unnamed (7).jpg",
-    estabelecimento: "/ESTABELECIMENTO.jpg",
-    // Casos clínicos reais da Dra. Laís
-    denteCasoClinico: "/DENTE.jpg",
-    atendimentoProcedimento: "/unnamed (1).jpg",
+  // Imagens fornecidas pelo usuário com fallbacks de altíssima definição
+  images: {
+    doctorHero: "/src/assets/images/doutora_lais_portrait_1790739138596.jpg",
+    doctorHeroFallback: "/src/assets/images/doutora_lais_portrait_1790739138596.jpg",
+    clinicHeroBg: "/src/assets/images/hero_clinic_interior_1790739125494.jpg",
+    clinicAbout: "/src/assets/images/regenerated_image_1790742529132.png",
+    clinicAboutFallback: "/src/assets/images/regenerated_image_1790742529132.png",
+    clinicReception: "/src/assets/images/regenerated_image_1790742530158.png",
+    clinicReceptionFallback: "/src/assets/images/regenerated_image_1790742530158.png",
+    clinicFacade: "/src/assets/images/regenerated_image_1790742531362.png",
+    clinicCtaBg: "/src/assets/images/regenerated_image_1790742532692.png",
+    clinicTreatment: "/unnamed (1).jpg",
   }
 };
 

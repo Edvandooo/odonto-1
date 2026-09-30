@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { CLINIC_CONFIG, getWhatsAppUrl } from "../constants/clinicData";
 import { ArrowRight, HeartHandshake, ShieldCheck, Sparkles, MessageCircle } from "lucide-react";
 import { ToothLogo } from "./ToothLogo";
-import { ClinicImage } from "./ClinicImage";
 
 export const Hero: React.FC = () => {
+  // Graceful fallback para a foto da Dra. Laís
+  const [doctorImgSrc, setDoctorImgSrc] = useState(CLINIC_CONFIG.images.doctorHero);
+
   return (
     <section
       id="hero"
       className="relative min-h-[92vh] lg:min-h-screen pt-28 pb-16 lg:pt-32 lg:pb-24 flex items-center overflow-hidden bg-gradient-to-b from-[#F9F6F0] via-[#FAF7F2] to-[#F5F0E6]"
     >
-      {/* Luz ambiente de profundidade */}
+      {/* Background ambient lighting effects */}
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-[#EADCCB]/40 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 right-1/4 w-[32rem] h-[32rem] bg-[#E8DDD0]/50 rounded-full blur-3xl pointer-events-none" />
 
@@ -102,34 +104,29 @@ export const Hero: React.FC = () => {
 
           </div>
 
-          {/* COLUNA DIREITA: COMPOSIÇÃO COM AS IMAGENS OFICIAIS FORNECIDAS */}
+          {/* COLUNA DIREITA: COMPOSIÇÃO 3D REALISTA (CLÍNICA + DRA. LAÍS) */}
           <div className="lg:col-span-6 xl:col-span-7 relative flex justify-center items-end lg:justify-end">
             
-            {/* Camada de Fundo: O Consultório Real Fornecido pelo Usuário */}
+            {/* Moldura de Fundo: O Consultório Odontológico Sofisticado */}
             <div className="relative w-full max-w-[560px] lg:max-w-none h-[420px] sm:h-[480px] lg:h-[580px] rounded-3xl overflow-hidden shadow-[0_20px_50px_-15px_rgba(80,60,40,0.12)] border border-[#ECE4D8]/80 bg-[#E8DDD0]">
               
-              {/* Foto Real Oficial do Consultório */}
-              <ClinicImage
-                src={CLINIC_CONFIG.officialImages.consultorio}
-                alt="Consultório odontológico Dra. Laís Ribeiro"
-                placeholderLabel="Foto Oficial: Consultório Odontológico"
+              {/* Foto Realista do Consultório Odontológico */}
+              <img
+                src={CLINIC_CONFIG.images.clinicHeroBg}
+                alt="Consultório odontológico premium Dra. Laís Ribeiro"
                 className="w-full h-full object-cover object-center filter brightness-[0.98] contrast-[0.95]"
+                referrerPolicy="no-referrer"
               />
 
               {/* Camada Intermediária: Iluminação, Vinheta Quente e Profundidade */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#2C2319]/45 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F2]/40 via-transparent to-[#2C2319]/30 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#2C2319]/40 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F2]/50 via-transparent to-[#2C2319]/25 pointer-events-none" />
 
-              {/* Letreiro Neon do Dente Iluminado na Parede do Consultório */}
-              <div className="absolute top-8 right-8 lg:top-12 lg:right-14 z-10 pointer-events-none">
-                <div className="p-3.5 rounded-2xl bg-[#261E16]/40 backdrop-blur-sm border border-[#E2B280]/40 tooth-neon-glow flex items-center justify-center">
-                  <ToothLogo className="w-10 h-10 lg:w-14 lg:h-14 text-[#FFDCB0]" neon={true} />
-                </div>
-              </div>
+             
 
-              {/* Assinatura Manuscrita Oficial no Canto Inferior Direito da Imagem */}
+              {/* Assinatura Manuscrita Elegante no Canto Inferior Direito da Imagem */}
               <div className="absolute bottom-6 right-6 lg:bottom-8 lg:right-8 z-30 pointer-events-none text-right">
-                <div className="font-script text-2xl sm:text-3xl text-[#FAF7F2] drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)] tracking-wide">
+                <div className="font-script text-2xl sm:text-3xl text-[#FAF7F2] drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] tracking-wide">
                   Laís Ribeiro
                 </div>
                 <div className="text-[9px] uppercase tracking-[0.25em] text-[#EFE7DC] font-medium drop-shadow-[0_1px_4px_rgba(0,0,0,0.7)]">
@@ -142,15 +139,20 @@ export const Hero: React.FC = () => {
               </div>
             </div>
 
-            {/* Primeiro Plano: Dra. Laís Ribeiro com a Foto Oficial Fornecida */}
-            {/* Posicionada na frente da composição, sem qualquer alteração por IA */}
+            {/* Primeiro Plano: Dra. Laís Ribeiro em Destaque */}
+            {/* O recorte da Dra. Laís fica NA FRENTE, ultrapassando a base e criando sensação de profundidade 3D */}
             <div className="absolute -bottom-2 sm:-bottom-4 lg:-bottom-6 right-2 sm:right-6 lg:right-8 w-[280px] sm:w-[350px] lg:w-[440px] xl:w-[480px] z-20 pointer-events-none transition-transform duration-500 hover:scale-[1.01]">
-              <ClinicImage
-                src={CLINIC_CONFIG.officialImages.doctorCutout}
-                secondarySrc={CLINIC_CONFIG.officialImages.doctorPhoto}
+              <img
+                src={doctorImgSrc}
                 alt="Dra. Laís Ribeiro - Cirurgiã Dentista"
-                placeholderLabel="Foto Oficial: Dra. Laís Ribeiro"
-                className="w-full h-auto max-h-[460px] sm:max-h-[530px] lg:max-h-[620px] object-contain drop-shadow-[0_20px_25px_rgba(40,30,20,0.3)]"
+                className="w-full h-auto max-h-[460px] sm:max-h-[530px] lg:max-h-[620px] object-contain drop-shadow-[0_20px_25px_rgba(40,30,20,0.3)] filter contrast-[1.02]"
+                referrerPolicy="no-referrer"
+                onError={() => {
+                  // Se o arquivo PNG do usuário não estiver na raiz do servidor web, usa o asset com a mesma estética
+                  if (doctorImgSrc !== CLINIC_CONFIG.images.doctorHeroFallback) {
+                    setDoctorImgSrc(CLINIC_CONFIG.images.doctorHeroFallback);
+                  }
+                }}
               />
             </div>
 

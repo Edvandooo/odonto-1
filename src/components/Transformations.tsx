@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { getWhatsAppUrl, CLINIC_CONFIG } from "../constants/clinicData";
 import { Sparkles, Check, ArrowRight } from "lucide-react";
-import { ClinicImage } from "./ClinicImage";
 
 interface CaseItem {
   id: string;
@@ -10,8 +9,6 @@ interface CaseItem {
   description: string;
   benefits: string[];
   croTag: string;
-  imageSrc: string;
-  imageLabel: string;
 }
 
 const CASES: CaseItem[] = [
@@ -25,9 +22,7 @@ const CASES: CaseItem[] = [
       "Textura, cor e translucidez personalizadas",
       "Mínimo ou nenhum desgaste do dente natural"
     ],
-    croTag: "Dra. Laís Ribeiro | CROSP 124.947",
-    imageSrc: CLINIC_CONFIG.officialImages.denteCasoClinico,
-    imageLabel: "Caso Real: Facetas em Resina (Dra. Laís Ribeiro)"
+    croTag: "Dra. Laís Ribeiro | CROSP 124.947"
   },
   {
     id: "endodontia",
@@ -39,9 +34,7 @@ const CASES: CaseItem[] = [
       "Localizador apical eletrônico de alta precisão",
       "Controle radiográfico rigoroso"
     ],
-    croTag: "Dra. Laís Ribeiro | CROSP 124.947",
-    imageSrc: CLINIC_CONFIG.officialImages.denteCasoClinico,
-    imageLabel: "Tratamento de Alta Precisão (Dra. Laís Ribeiro)"
+    croTag: "Dra. Laís Ribeiro | CROSP 124.947"
   },
   {
     id: "reabilitacao",
@@ -49,13 +42,11 @@ const CASES: CaseItem[] = [
     category: "Função Mastigatória & Autoestima",
     description: "Substituição definitiva de ausências dentárias com implantes biocompatíveis de titânio, devolvendo a liberdade de sorrir e mastigar qualquer alimento com firmeza.",
     benefits: [
-      "Planejamento seguro e guiado",
+      "Planejamento 3D seguro e guiado",
       "Estabilidade protética de longa durabilidade",
       "Harmonia estética com o arco dental"
     ],
-    croTag: "Dra. Laís Ribeiro | CROSP 124.947",
-    imageSrc: CLINIC_CONFIG.officialImages.denteCasoClinico,
-    imageLabel: "Reabilitação Oral Funcional (Dra. Laís Ribeiro)"
+    croTag: "Dra. Laís Ribeiro | CROSP 124.947"
   }
 ];
 
@@ -81,7 +72,7 @@ export const Transformations: React.FC = () => {
           </h2>
 
           <p className="text-[#6B6158] text-sm sm:text-base leading-relaxed">
-            Casos reais documentados e conduzidos com rigor técnico e sensibilidade estética pela Dra. Laís Ribeiro.
+            Cada paciente recebe um plano clínico único, unindo arte, biologia e tecnologia odontológica de última geração.
           </p>
         </div>
 
@@ -102,7 +93,7 @@ export const Transformations: React.FC = () => {
           ))}
         </div>
 
-        {/* Card de Destaque com a Foto Real Fornecida pelo Usuário */}
+        {/* Card de Destaque do Caso Selecionado */}
         <div className="bg-white/95 rounded-3xl border border-[#E9DFD2] p-8 sm:p-12 shadow-sm card-luxury-shadow max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             
@@ -141,23 +132,20 @@ export const Transformations: React.FC = () => {
               </a>
             </div>
 
-            {/* Imagem Oficial do Caso Clínico (DENTE.jpg) */}
-            <div className="md:col-span-5 flex flex-col justify-center items-center text-center">
-              <div className="w-full h-64 sm:h-72 rounded-2xl overflow-hidden border border-[#E5DACD] shadow-sm relative group bg-[#FAF7F2]">
-                <ClinicImage
-                  src={activeCase.imageSrc}
-                  alt={activeCase.imageLabel}
-                  placeholderLabel={activeCase.imageLabel}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute bottom-2 left-2 right-2 px-3 py-1.5 rounded-lg bg-[#2C2319]/80 backdrop-blur-md text-[10px] text-white text-center font-medium">
-                  {activeCase.croTag}
-                </div>
+            {/* Selo Técnico Lateral */}
+            <div className="md:col-span-5 flex flex-col justify-center items-center text-center p-6 rounded-2xl bg-[#FAF7F2] border border-[#ECE3D7]">
+              <div className="w-12 h-12 rounded-full bg-[#EFE7DC] flex items-center justify-center text-[#9E8268] mb-3">
+                <Sparkles className="w-6 h-6" />
               </div>
-              <div className="flex items-center gap-1.5 mt-3 text-[11px] text-[#8C7E72]">
-                <Sparkles className="w-3.5 h-3.5 text-[#9E8268]" />
-                <span>Caso Clínico Real Documentado</span>
-              </div>
+              <span className="font-serif text-lg font-semibold text-[#2C2724] block mb-1">
+                Protocolo Seguro &amp; Personalizado
+              </span>
+              <p className="text-xs text-[#7A7067] leading-relaxed mb-4">
+                Avaliação detalhada, escaneamento e acompanhamento direto com a Dra. Laís Ribeiro.
+              </p>
+              <span className="text-[10px] font-semibold text-[#9E8268] uppercase tracking-wider px-3 py-1 rounded-full bg-[#FAF5EE] border border-[#E6DCCF]">
+                {activeCase.croTag}
+              </span>
             </div>
 
           </div>

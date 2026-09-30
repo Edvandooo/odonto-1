@@ -15,24 +15,16 @@ export const ToothLogo: React.FC<ToothLogoProps> = ({
     <svg
       width={size}
       height={size}
-      viewBox="0 0 32 32"
+      viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={`${className} ${neon ? "tooth-neon-glow" : ""}`}
     >
-      {/* Elegant minimalist tooth icon */}
+      {/* Molar tooth outline matching the provided reference */}
       <path
-        d="M16 3C11.5 3 7 5.2 7 11C7 15 9 19 11 24.5C12 27.2 13 29 14.5 29C16 29 16 26.5 16 23C16 26.5 16 29 17.5 29C19 29 20 27.2 21 24.5C23 19 25 15 25 11C25 5.2 20.5 3 16 3Z"
+        d="M12 4.4C9.4 2.2 5.5 3.2 4.5 8C3.4 13 5.4 16.8 7.2 21C7.8 22.4 9.3 22.4 10 20.2C10.7 17.8 11.2 15 12 15C12.8 15 13.3 17.8 14 20.2C14.7 22.4 16.2 22.4 16.8 21C18.6 16.8 20.6 13 19.5 8C18.5 3.2 14.6 2.2 12 4.4Z"
         stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      {/* Top subtle occlusal curve */}
-      <path
-        d="M12 9C13.5 10 14.8 10 16 9.2C17.2 10 18.5 10 20 9"
-        stroke="currentColor"
-        strokeWidth="1.5"
+        strokeWidth="2.2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
